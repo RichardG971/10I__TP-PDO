@@ -1,0 +1,106 @@
+h1, h2, h3
+{
+    font-variant: small-caps;
+}
+
+.posCenter
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modalBgc
+{
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1100;
+    overflow-y: hidden;
+    visibility: hidden;
+}
+
+/* Combinaison avec la class 'formRes' ou 'formResFinal' mis en place avec php après la soumission du formulaire. */
+.formRes.modalBgc,
+.formResFinal.modalBgc
+{
+    visibility: visible;
+}
+
+.modalRes
+{
+    overflow-y: auto;
+}
+
+label
+{
+    font-weight: bold;
+}
+
+.accueil, .chDetail, label
+{
+    font-size: 1.2rem;
+}
+
+.accueil .divImg img
+{
+    max-width: 95%;
+    max-height: 150px;
+}
+
+.chambre .divImg img,
+.chEdit .divImg img
+{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.chambre .divImg,
+.chEdit .divImg
+{
+    position: relative;
+}
+
+.chDetail .divImg img,
+.reserv .divImg img
+{
+    max-width: 95%;
+    max-height: 30rem;
+}
+
+.accueil .divImg .imgHov,
+.chDetail .divImg .imgHov,
+.reserv .divImg .imgHov,
+.chEdit .divImg .imgHov
+{
+    position: absolute;
+    max-height: 40rem;
+    max-width: 40rem;
+    top: -20px;
+    box-shadow: 0 0 0 0.25rem #17a2b8;
+    color: rgb(255, 193, 7);
+    transform: translate(-50%, 0);
+    visibility: hidden;
+    margin-bottom: 5%;
+}
+
+.chambre .divImg .imgHov
+{
+    position: absolute;
+    max-height: 30rem;
+    max-width: 30rem;
+    top: -50px;
+    left: 0;
+    box-shadow: 0 0 0 0.25rem #17a2b8;
+    color: rgb(255, 193, 7);
+    visibility: hidden;
+    margin-bottom: 5%;
+}
+
+.divImg span:hover .imgHov /* Attention, si certain conteneur sont identifié par un id, 'hover' ne fonctionnerait pas si l'id n'est pas indiqué */
+{
+    visibility: visible;
+    z-index: 1050;
+}
