@@ -66,16 +66,35 @@
                 </div>
             </div>
 
+            <?php if($_SESSION['role'] !== 1 && $reserv->tpsSejour >= 28) { ?>
             <div class="row justify-content-around">
                 <div class="col-md-4 col-12">
                     <label for="dateArr">Date d'arrivée</label>
-                    <input type="date" class="form-control text-center" id="dateArr" value="<?= $reserv->getDateArrivee() ?>" min="<?= $dateArr_min ?>" max="<?= $dateArr_max ?>" name="dateArr" <?= $reserv->form ?>>
+                    <span style="background-color: #e9ecef;" class="form-control text-center"><?= ReservationController::dateFormatMletter($reserv->getDateArrivee()) ?></span>
+                </div>
+                <div class="col-md-4 col-12">
+                    <label for="dateDep">Date de départ</label>
+                    <span style="background-color: #e9ecef;" class="form-control text-center"><?= ReservationController::dateFormatMletter($reserv->getDateDepart()) ?></span>
+                </div>
+            </div>
+            <div class="pt-3"></div>
+            <div class="row justify-content-center">
+                <div class="col-10 text-center alert alert-danger" style="font-size: 1.2rem; font-weight: bolder;">Vous n'avez pas les autorisations pour modifier ce séjour. Veuillez contacter un adminsitrateur.</div>
+            </div>
+
+            <?php } else { ?>
+            
+            <div class="row justify-content-around">
+                <div class="col-md-4 col-12">
+                    <label for="dateArr">Date d'arrivée</label>
+                    <input type="date" class="form-control text-center" id="dateArr" value="<?= $reserv->getDateArrivee() ?>" min="<?= $dateArr_min ?>" max="<?= $dateArr_max ?>" name="dateArr" <?php if($dateArr_compar < date('Y-m-d')) { echo 'readonly'; } else { echo $reserv->form; } ?>>
                 </div>
                 <div class="col-md-4 col-12">
                     <label for="dateDep">Date de départ</label>
                     <input type="date" class="form-control text-center" id="dateDep" value="<?= $reserv->getDateDepart() ?>" name="dateDep" min="<?= $dateDep_min; ?>" max="<?= $dateDep_max; ?>" title="Pour un séjour au delà de 28 jours, contacter un administrateur" required>
                 </div>
             </div>
+            <?php } ?>
 
             <hr>
 
@@ -118,10 +137,17 @@
             </div>
             
             <br>
+            
+            <?php if($_SESSION['role'] !== 1 && $reserv->tpsSejour >= 28) { ?>
+            <div class="row justify-content-center">
+                <a href="./index.php?action=admin" class="btn btn-info col-md-3 mx-3 mt-3">RESERVATIONS</a>
+            </div>
+            <?php } else { ?>
             <div class="row justify-content-center">
                 <a onclick="return confirm('Annuler les modifications...')" href="./index.php?action=admin" class="btn btn-danger col-md-3 mx-3 mt-3">Annuler</a>
                 <button onclick="return confirm('Valider les modifications...')" type="submit" class="btn btn-success col-md-3 mx-3 mt-3" name="modifier">Valider</button>
             </div>
+            <?php } ?>
 
             <?php if(isset($upSuccess)) { ?>
             <div class="text-right">

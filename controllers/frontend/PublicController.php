@@ -151,7 +151,7 @@ class PublicController extends Controller
                 } else {
                     $reserv->recap_donnees['Durée période'] = 'Durée de période sélectionnée sur le site acceptée';
                     // Si la période est indisponible.
-                    if($row_verifReserv != 0) {
+                    if($row_verifReserv !== 0) {
                         $reserv->recap_donnees['Période'] = 'Période indisponible'; /*****/ $periode = 'La période que vous avez choisie n\'est pas disponible.';
                     // Si la période est disponible.
                     } else {

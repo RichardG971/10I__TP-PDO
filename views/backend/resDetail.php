@@ -24,7 +24,7 @@
                         Prix total :
                     </div>
                     <div class="col">
-                        <div><?= $tpsSejour; ?> nuit(s)<br><?= $prixSejour; ?></div>
+                        <div><?= $reserv->tpsSejour; ?> nuit(s)<br><?= $prixSejour; ?></div>
                     </div>
                 </div>
             </div>

@@ -59,6 +59,14 @@ class ReservationController extends Controller
         // Sélection de la réservation.
         $reserv = $this->driver->detailReservation($nCh, $nCl);
 
+        // Calcul du temps du séjour.
+        $dateArr = new DateTime($reserv->getDateDepart());
+        $dateDep = new DateTime($reserv->getDateArrivee());
+
+        $nbJour = $dateArr->diff($dateDep);
+
+        $reserv->tpsSejour = $nbJour->format('%a');
+        
         // Sélection du client.
         $client = $this->driver->listeClient($nCl);
 
@@ -82,13 +90,7 @@ class ReservationController extends Controller
             $reserv = $tabObjReserv[2];
 
             // Calcul du prix du séjour.
-            $dateArr = new DateTime($reserv->getDateDepart());
-            $dateDep = new DateTime($reserv->getDateArrivee());
-
-            $nbJour = $dateArr->diff($dateDep);
-
-            $tpsSejour = $nbJour->format('%a');
-            $prixSejour = ($chambre->getPrix() * $tpsSejour).' €';
+            $prixSejour = ($chambre->getPrix() * $reserv->tpsSejour).' €';
 
             require_once('./views/backend/resDetail.php');
         }
@@ -102,7 +104,7 @@ class ReservationController extends Controller
             $chambre = $tabObjReserv[0];
             $client = $tabObjReserv[1];
             $reserv = $tabObjReserv[2];
-            
+
             $dateArr_compar = trim($reserv->getDateArrivee());
             $dateDep_compar = trim($reserv->getDateDepart());
         
