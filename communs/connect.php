@@ -14,4 +14,3 @@ try
     //throw $th;
     echo $e->getMessage();
 }
-?>

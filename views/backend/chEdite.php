@@ -52,7 +52,7 @@
                 <div class="form-group col-md-3 col-6">
                     <label for="prix">Prix :</label>
                     <input type="text" name="prix" id="prix" class="form-control text-center" value="<?= $chambre->getPrix() ?>" pattern="[^0a-zA-Z][0-9]{1,3}" title="Nombre de 2 à 4 chiffres ne commençant pas par 0" required>
-                    <!-- Pour le pattern '[^0][0-9]{1,3}', on demande 4 chiffres maximum. '[^0a-zA-Z]' compte pour un chiffre c'est pour cela que '[0-9]{1,3}' on ne demande que 3 chiffres maximum pour avoir un total de 4. -->
+                    <!-- Pour le pattern '[^0a-zA-Z][0-9]{1,3}', on demande 4 chiffres maximum. '[^0a-zA-Z]' compte pour un chiffre c'est pour cela que '[0-9]{1,3}' on ne demande que 3 chiffres maximum pour avoir un total de 4. -->
                 </div>
             </div>
 

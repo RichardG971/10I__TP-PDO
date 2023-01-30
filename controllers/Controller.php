@@ -57,7 +57,7 @@ abstract class Controller
     {
         $str = trim($str);
         $str = preg_replace('/[,.-]/', ' ', $str);
-        $str = preg_replace('/  +/', ' ', $str);
+        $str = preg_replace('/ +/', ' ', $str);
         $tabStrReplaceUcf = [ 'a' => ['à'], 'e' => ['é', 'è'], 'i' => ['î', 'ï'], 'o' => ['ô', 'ö'], 'u' => ['û', 'ü'] ];
         $tabStrReplace = [ 'a' => ['â', 'ä', 'Â', 'Ä'], 'e' => ['ê', 'ë', 'Ê', 'Ë'], 'i' => ['Î', 'Ï'], 'o' => ['Ô', 'Ö'], 'u' => ['ù', 'Û', 'Ü'], 'y' => ['ÿ'] ];
         foreach($tabStrReplaceUcf as $key => $tab)

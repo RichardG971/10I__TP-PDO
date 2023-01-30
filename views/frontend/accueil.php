@@ -14,8 +14,8 @@ if(isset($_SESSION['cons'])) { unset($_SESSION['cons']); }
 
         <div class="row align-items-center border rounded my-3">
             <div class="divImg col-sm-4 text-center py-1">
-                <span><img src="./assets/Img//<?= $d->getImage() ?>" class="rounded" alt="<?= ChambreController::f_imgAlt($d->getImage()) ?>">
-                <br><img src="./assets/Img//<?= $d->getImage() ?>" class="imgHov rounded" alt="<?= ChambreController::f_imgAlt($d->getImage()) ?>"></span>
+                <span><img src="./assets/Img/<?= $d->getImage() ?>" class="rounded" alt="<?= ChambreController::f_imgAlt($d->getImage()) ?>">
+                <br><img src="./assets/Img/<?= $d->getImage() ?>" class="imgHov rounded" alt="<?= ChambreController::f_imgAlt($d->getImage()) ?>"></span>
             </div>
             <div class="col-sm-8">
                 <div class="row align-items-center">

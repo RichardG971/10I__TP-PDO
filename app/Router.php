@@ -120,7 +120,7 @@ class Router
                     $this->ctrUser->actlogout();
                 } else if($_GET['action'] == 'add_user') {
                     $this->ctrUser->actFormUser();
-                } else if ($_GET['action']=='recap') {
+                } else if($_GET['action']=='recap') {
                     if($_SERVER['REQUEST_METHOD'] === 'POST')
                     {
                         $this->ctrPub->payement();

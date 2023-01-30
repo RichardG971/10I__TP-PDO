@@ -99,6 +99,7 @@ class BackDriver extends Driver
             $updChambre = [$chambre->getPrix(), $chambre->getNbLits(), $chambre->getNbPers(), $chambre->getConfort(), $chambre->getDescription(), $chambre->getNumChambre()];
             $res->execute($updChambre);
 
+            $res->closeCursor();
             return true;
         } else {
             $sql = "UPDATE chambre SET prix = ?, nbLits = ?, nbPers = ?, confort = ?, image = ?, description = ? WHERE numChambre = ?";
@@ -114,9 +115,9 @@ class BackDriver extends Driver
             {
                 unlink('./assets/Img/'.$chambre->imgPrev);
             }
+            $res->closeCursor();
             return true;
         }
-        $res->closeCursor();
     }
 
     public function deleteReserv(Reservation $reserv)
